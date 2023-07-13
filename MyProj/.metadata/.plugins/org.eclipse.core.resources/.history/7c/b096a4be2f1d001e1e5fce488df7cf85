@@ -1,0 +1,24 @@
+package jdbc_programs;
+import java.sql.*;
+import java.util.*;
+public class JdbcPreparedStatementDemo {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter Employeee Number");
+		int eno= s.nextInt();
+		System.out.println("Enter Employee Name");
+		String ename = s.next();
+		System.out.println("Enter Employee Salary");
+		float salary = s.nextFloat();
+		try
+		{
+			
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+
+}

@@ -1,0 +1,42 @@
+package jdbc_programs;
+import java.sql.*;
+public class JdbcStatementDemo {
+
+	public static void main(String[] args) {
+		Connection con=null;
+		Statement st=null;
+		try
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java08","root","root");
+			con.setAutoCommit(false);// by default in JDBC it is con.setAutoCommit(true), since by default the sql queries are comitted (Auto committed) in JDBC 
+			//System.out.println("Connected");
+			st=con.createStatement();
+			/*st.execute("create table employee (eno int(3), ename varchar(10), salary float(4))");
+			System.out.println("Table created"); */
+			/*st.executeUpdate("insert into employee values (111,'Raj',8000)");
+			st.executeUpdate("insert into employee values (222,'Ramu',9000)");
+			st.executeUpdate("insert into employee values (333,'Ramya',6000)");
+			System.out.println("Inserted"); */
+			/*int n= st.executeUpdate("update employee set salary=10000");
+			System.out.println(n+" records updated"); */
+			/*int n= st.executeUpdate("delete from employee");
+			System.out.println(n+" records deleted"); */
+			ResultSet rs=st.executeQuery("select * from employee");
+			while (rs.next())
+			{
+				System.out.println(rs.getInt("eno")+" "+rs.getString("ename")+" "+rs.getFloat(3)); // 3 is column Index
+			}
+			st.close();
+			con.commit(); // to commit we use this method
+			con.close();
+		}
+		catch(Exception e)
+		{
+			//con.rollback();
+			System.out.println(e);
+		}
+
+	}
+
+}

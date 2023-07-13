@@ -1,0 +1,10 @@
+package jdbc_programs;
+import java.sql.*;
+public class JdbcStatementDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

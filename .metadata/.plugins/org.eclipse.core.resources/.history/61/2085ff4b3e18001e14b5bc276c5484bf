@@ -1,0 +1,20 @@
+package com.exceptions;
+
+class WithdrawException extends Exception
+{
+	WithdrawException(String msg) {
+		super(msg);
+	}
+	WithdrawException() {
+		// TODO Auto-generated constructor stub
+	}
+}
+
+public class WithdrawExceptionDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

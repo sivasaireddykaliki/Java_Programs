@@ -1,0 +1,41 @@
+package jdbc_programs;
+import java.sql.*;
+import java.util.*;
+public class JdbcPreparedStatementDemo {
+
+	public static void main(String[] args) throws SQLException {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter Employeee Number");
+		int eno= s.nextInt();
+		System.out.println("Enter Employee Name");
+		String ename = s.next();
+		System.out.println("Enter Employee Salary");
+		float salary = s.nextFloat();
+	    Connection con=null;
+	    PreparedStatement pst=null;
+		try
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java08","root","root");
+			/*pst=con.prepareStatement("insert into employee values (?,?,?)"); // during execution ? replaced by provided input values in prepared statement
+			pst.setInt(1, eno); //1st question mark or column value set to eno variable value
+			pst.setString(2, ename);
+			pst.setFloat(3, salary);
+			pst.executeUpdate(); */
+			pst = con.prepareStatement("insert into employee values ("+eno+",'"+ename+"',"+salary+")");
+			pst.executeUpdate();
+			System.out.println("Inserted");
+			System.out.println("Record Inserted");
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		finally
+		{
+			con.close();
+			pst.close();
+		}
+	}
+
+}

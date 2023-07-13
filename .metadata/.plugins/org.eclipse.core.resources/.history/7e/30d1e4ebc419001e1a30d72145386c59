@@ -1,0 +1,57 @@
+package com.collections;
+
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class List_Program {
+
+	public static void main(String[] args) {
+
+		LinkedList<Integer> ll=new LinkedList<Integer>(); //accept only integers
+		int choice,element,index;
+		Scanner scanner=new Scanner(System.in);
+		while(true)
+		{
+			System.out.println("List of operations");
+			System.out.println("1. Add element at last");
+			System.out.println("2. Add element at first");
+			System.out.println("3. Add element at given index");
+			System.out.println("4. Update element at given index");
+			System.out.println("5. Delete the first element");
+			System.out.println("6. Delete the last element");
+			System.out.println("7. Delete the given element");
+			System.out.println("8. Delete the element at given index");
+			System.out.println("9. Display the elements");
+			System.out.println("10.Exit");
+			System.out.println("Enter your choice");
+			choice=scanner.nextInt();
+			switch(choice)
+			{
+				case 1:
+					System.out.println("Enter element to add at end of list");
+					element=scanner.nextInt();
+					ll.addLast(element);
+					break;
+				case 2:
+					System.out.println("Enter element to add at beginning of list");
+					element=scanner.nextInt();
+					ll.addFirst(element);
+					break;
+				case 3:
+					System.out.println("Enter element and index values as input to add element");
+					element=scanner.nextInt();
+					index=scanner.nextInt();
+					ll.add(index, element);
+					break;
+				case 4:
+					System.out.println("Enter element and index values as input to update element");
+					element=scanner.nextInt();
+					index=scanner.nextInt();
+					ll.set(index,element);
+					break;
+				
+			}
+		}
+	}
+
+}

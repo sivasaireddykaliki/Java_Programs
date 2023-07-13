@@ -1,0 +1,28 @@
+package jdbc_programs;
+import java.sql.*;
+public class JdbcStatementDemo {
+
+	public static void main(String[] args) {
+		try
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java08","root","root");
+			//System.out.println("Connected");
+			Statement st=con.createStatement();
+			/*st.execute("create table employee (eno int(3), ename varchar(10), salary float(4))");
+			System.out.println("Table created"); */
+			st.executeUpdate("insert into employee values (111,'Raj',8000)");
+			st.executeUpdate("insert into employee values (222,'Ramu',9000)");
+			st.executeUpdate("insert into employee values (333,'Ramya',6000)");
+			System.out.println("Inserted");
+			st.close();
+			con.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+
+	}
+
+}
